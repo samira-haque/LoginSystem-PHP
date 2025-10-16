@@ -33,6 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>SignUp</title>
+    
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
@@ -56,27 +57,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 </div>' ;
     }
     ?>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Signup to our website</h1>
+  <div class="d-flex justify-content-center">
+    <form action="/LoginSystem/signup.php" method="post" class="w-50">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" class="form-control" id="cpassword" name="cpassword">
+        <small class="form-text text-muted">Rewrite to confirm password</small>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">SignUp</button>
+    </form>
+  </div>
+</div>
 
-    <div class="container my-6">
-      <h1 class="text-center">Signup to our website</h1>
-      <form action="/LoginSystem/signup.php" method="post">
-  <div class="form-group col-md-6">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter username">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="cpassword">Confirm Password</label>
-    <input type="password" class="form-control" id="cpassword" name="cpassword">
-    <small id="emailHelp" class="form-text text-muted">Rewrite To confirm password</small>
-
-  </div>
-  <button type="submit" class="btn btn-primary col-md-6">SignUp</button>
-</form>
-    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
