@@ -18,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $showError = "Username Already Exists";
         } else {
             if ($password == $cpassword) {
-                $sql = "INSERT INTO `user` (`username`, `password`, `dt`) VALUES ('$username', '$password', current_timestamp())";
+              $hash = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO `user` (`username`, `password`, `dt`) VALUES ('$username', '$hash', current_timestamp())";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     $showAlert = true;
@@ -71,11 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="/LoginSystem/signup.php" method="post" class="w-50">
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+            <input type="text" maxlength="11" class="form-control" id="username" name="username" placeholder="Enter username">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
+            <input type="password" maxlength="23" class="form-control" id="password" name="password">
           </div>
           <div class="form-group">
             <label for="cpassword">Confirm Password</label>
